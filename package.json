@@ -4,6 +4,7 @@
   "description": "OmeGlast Weather Client",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_PATH=./src node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

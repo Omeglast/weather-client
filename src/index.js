@@ -1,2 +1,2 @@
 require('babel-register');
-require('./weather/weather');
+require('./weather/index');
