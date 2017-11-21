@@ -8,19 +8,26 @@ const weather = new Weather({ logger, location: settings.weather.location });
 const mqttClient = mqtt.connect(`mqtt://${settings.mqtt.host}:${settings.mqtt.port}`);
 
 // Loading current weather and publish
-setInterval(() => {
-  weather.find((err, res) => {
+setInterval(
+  () => weather.find((err, res) => {
     if (err) {
-      logger.error(err.message, { err });
-      return;
+      return logger.error(err.message, { err });
     }
     if (settings.mqtt.topic.temperature) {
-      logger.debug(`Publish current temperature: ${res.temperature}`, {res});
-      mqttClient.publish(settings.mqtt.topic.temperature, JSON.stringify({value: res.temperature}));
+      logger.debug(`Publish current temperature: ${res.temperature}`, { res });
+      mqttClient.publish(
+        settings.mqtt.topic.temperature,
+        JSON.stringify({ value: res.temperature }),
+      );
     }
     if (settings.mqtt.topic.humidity) {
-      logger.debug(`Publish current humidity: ${res.humidity}`, {res});
-      mqttClient.publish(settings.mqtt.topic.humidity, JSON.stringify({value: res.humidity}));
+      logger.debug(`Publish current humidity: ${res.humidity}`, { res });
+      mqttClient.publish(
+        settings.mqtt.topic.humidity,
+        JSON.stringify({ value: res.humidity }),
+      );
     }
-  })
-}, settings.interval);
+    return true;
+  }),
+  settings.interval,
+);

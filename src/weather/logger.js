@@ -9,7 +9,7 @@ class Logger {
           timestamp: () => (new Date()).toLocaleString(),
           prettyPrint: true,
           formatter: options => `${config.colorize('data', options.timestamp())} ${config.colorize(options.level, options.level.toUpperCase())} ${options.message ? options.message : ''} ${config.colorize('data', JSON.stringify(options.meta))}`,
-        })
+        }),
       ],
     });
   }
