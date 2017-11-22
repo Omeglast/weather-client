@@ -19,7 +19,7 @@ npm:
 	@${NPM_CMD} ${CMD}
 
 build:
-	@docker build -t jeckel/omeglast-server:latest .
+	@docker build -t jeckel/omeglast-weather-client:latest .
 
 lint:
 	@${NPM_CMD} run eslint
