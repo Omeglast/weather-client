@@ -7,6 +7,10 @@ const logger = new Logger();
 const weather = new Weather({ logger, location: settings.weather.location });
 const mqttClient = mqtt.connect(`mqtt://${settings.mqtt.host}:${settings.mqtt.port}`);
 
+mqttClient.on('connect', () => {
+  logger.info(`MQTT Weather client ${settings.weather.location} connected`);
+});
+
 // Loading current weather and publish
 setInterval(
   () => weather.find((err, res) => {
