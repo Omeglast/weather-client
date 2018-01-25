@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:9-alpine
 MAINTAINER Julien MERCIER <devci@j3ck3l.me>
 
 COPY . /app

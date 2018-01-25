@@ -20,7 +20,7 @@
   "homepage": "https://github.com/Omeglast/weather-client#readme",
   "dependencies": {
     "babel-register": "^6.26.0",
-    "mqtt": "^2.14.0",
+    "mqtt": "^2.15.1",
     "weather-js": "^2.0.0",
     "winston": "^2.4.0"
   },
